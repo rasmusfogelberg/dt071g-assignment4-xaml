@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment4_dt071g.MainPage"
+             xmlns:local="clr-namespace:Assignment4_dt071g"
+             Title="The Ultimate Xmas App!"
+             BackgroundColor="#165B33">
+    
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+    <Grid Margin="20,40">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.6*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+
+        <Image Source="santa_hat"
+               Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="2" />
+
+        <Label Text="Welcome to the Christmas App!"
+               Grid.Row="1"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               TextColor="#FFFFFF"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="25" />
+        
+            
+        <Label Text="This App is for all the Christmas lovers.
+            You can find out how long it is to Christmas down to the last second! And if you are curious what weather Santa has you can find out that here too!"
+               Grid.Row="2"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               TextColor="#FFFFFF"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="18"  />
+       
+
+        <Label Text="Just press a button below to see how long until Christmas or how Santas weather is."
+               Grid.Row="3"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               TextColor="#FFFFFF"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="18" />
+
+        <Button Text="Time until Christmas!"
+                Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Command="{Binding TimePageCommand}"
+                BackgroundColor="#F8B229"
+                TextColor="#FFFFFF" />
+        
+        <Button Text="Santas weather"
+                Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Command="{Binding WeatherPageCommand}"
+                BackgroundColor="#F8B229"
+                TextColor="#FFFFFF" />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

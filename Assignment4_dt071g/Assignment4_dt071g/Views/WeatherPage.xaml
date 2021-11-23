@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment4_dt071g.WeatherPage"
+             xmlns:local="clr-namespace:Assignment4_dt071g"
+             Title="Santas Weather"
+             BackgroundColor="#165B33">
+
+    <ContentPage.BindingContext>
+        <local:WeatherPageViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid Margin="20,40">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Image Source="santa_hat"
+               Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="2" />
+
+        <Label Text="How is Santas weather in the North pole today?" 
+               Grid.Row="1"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               TextColor="#FFFFFF"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="25" />
+
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            
+            <Label Text="The weather for Santa is"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   TextColor="#FFFFFF"
+                   VerticalTextAlignment="End"
+                   HorizontalTextAlignment="Start"
+                   FontSize="18"/>
+            
+            <Label x:Name="descriptionTxt"
+                   Text="N/A" 
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   TextColor="#FFFFFF"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="End"
+                   FontSize="18" />
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.ColumnSpan="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Label Text="How many celcius does Santa have today?"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   TextColor="#FFFFFF"
+                   VerticalTextAlignment="End"
+                   HorizontalTextAlignment="Start"
+                   FontSize="18"/>
+
+            <Label x:Name="temperatureTxt"
+                   Text="N/A" 
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   TextColor="#FFFFFF"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="End"
+                   FontSize="18" />
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.ColumnSpan="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Label Text="How much of Santas sky is cloudy?"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   TextColor="#FFFFFF"
+                   VerticalTextAlignment="End"
+                   HorizontalTextAlignment="Start"
+                   FontSize="18"/>
+
+            <Label x:Name="cloudinessTxt"
+                   Text="N/A" 
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   TextColor="#FFFFFF"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="End"
+                   FontSize="18" />
+        </Grid>
+
+        <Button Text="Go Back"
+                Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Command="{Binding ExitCommand}"
+                BackgroundColor="#BB2528"
+                TextColor="#FFFFFF" />
+
+    </Grid>
+
+</ContentPage>
