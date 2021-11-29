@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * A model for the time used to countdown to christmas
+ *  
+ * Author: Rasmus Fogelberg 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

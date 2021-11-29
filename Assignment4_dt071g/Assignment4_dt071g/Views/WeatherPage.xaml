@@ -1,4 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+<!-- 
+    This is the Weather page view of the assignment. Nested Grids are used here to make sure
+    that information that belongs to each other keeps together. This xaml page only uses the
+    context bindings for the back/exit-button. The rest of the code can be found in the
+    WeatherPage.xaml.cs file. This was purposly put there to see how it was to write code
+    that was a little bit more directly connected to the xaml file.
+    
+    Author: Rasmus Fogelberg 
+-->
+    
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Assignment4_dt071g.WeatherPage"

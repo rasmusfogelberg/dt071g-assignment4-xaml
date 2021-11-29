@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+<!-- 
+    This is the Time page view of the assignment. Layout similar to MainPage.xaml regarding
+    Grid. Also using binding context here so exit-button method and methods for showing 
+    countdown can be called .
+    
+    Author: Rasmus Fogelberg
+-->
+    
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Assignment4_dt071g.TimePage"
@@ -37,7 +46,8 @@
                VerticalTextAlignment="Center"
                HorizontalTextAlignment="Center"
                FontSize="40" />
-
+        
+        <!--Using binding here to get the countdown. TODO: change name for method-->
         <Label Text="{Binding Test}" 
                Grid.Row="2"
                Grid.Column="0"

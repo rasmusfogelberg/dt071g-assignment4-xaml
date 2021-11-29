@@ -1,7 +1,16 @@
-﻿using System;
+﻿/*
+ * The first file that is accessed when running the app. Here the NavigationPage() is
+ * used to set MainPage to the root page. It also allows for other pages to be used 
+ * with PushAsync to push a page on top of the "view stack" or PopAsync to remove
+ * from the top of the "view stack".
+ *  
+ * Author: Rasmus Fogelberg 
+ */
+
+
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using ConstConfig;
 
 namespace Assignment4_dt071g
 {
@@ -13,8 +22,8 @@ namespace Assignment4_dt071g
 
             MainPage = new NavigationPage(new MainPage())
             {
-                BarBackgroundColor = Color.FromHex(Const.SecondaryColor),
-                BarTextColor = Color.FromHex(Const.TextColor)
+                BarBackgroundColor = Color.FromHex("16944d"),
+                BarTextColor = Color.FromHex("FFFFFF")
             };
         }
     }

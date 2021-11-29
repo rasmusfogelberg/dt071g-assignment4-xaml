@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * This is the API caller for the assignment
+ *  
+ * Author: Rasmus Fogelberg 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +15,7 @@ namespace Assignment4_dt071g
 {
     public class ApiCaller
     {
+        // Async method that awaits the answer from the API-URL.
         public static async Task<ApiResponse> Get(string url, string authId = null)
         {
             using (var client = new HttpClient())
@@ -27,6 +34,7 @@ namespace Assignment4_dt071g
         }
     }
 
+    // A simple class for the API response.
     public class ApiResponse
     {
         public bool Success => ErrorMessage == null;

@@ -1,4 +1,14 @@
-﻿using Newtonsoft.Json;
+﻿/*
+ * In this file the API is used to get information about the weather on the North Pole (Santas home).
+ * Latitude and longitude are used for this and put into the URI where the API can be found. If there
+ * would be a city in the North Pole a city name could be used to get the location.
+ * 
+ * The objects are then used to store their value and then be used in the WeatherPage.xaml file.
+ *  
+ * Author: Rasmus Fogelberg 
+ */
+
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;

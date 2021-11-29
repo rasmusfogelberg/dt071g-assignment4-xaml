@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ *  A model for the different data that can be recived from the API.
+ *  The model is based on what https://openweathermap.org/ provides
+ *  Openweathermaps API is used for this assignment
+ *
+ *  Author: Rasmus Fogelberg
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

@@ -1,16 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 
+    This is the Main page view of the assignment. Using grid to create the view and then 
+    binding all context to the MainPageViewModel.cs so button methods can be called.
+    
+    Author: Rasmus Fogelberg
+-->
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Assignment4_dt071g.MainPage"
              xmlns:local="clr-namespace:Assignment4_dt071g"
              Title="The Ultimate Xmas App!"
              BackgroundColor="#165B33">
-    
+
+    <!--Setting the bindingcontext to the MainPageViewModel-->
     <ContentPage.BindingContext>
         <local:MainPageViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
+    <!--Using Grid to set up the layout of the app-->
     <Grid Margin="20,40">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -38,8 +48,7 @@
                VerticalTextAlignment="Center"
                HorizontalTextAlignment="Center"
                FontSize="25" />
-        
-            
+
         <Label Text="This App is for all the Christmas lovers.
             You can find out how long it is to Christmas down to the last second! And if you are curious what weather Santa has you can find out that here too!"
                Grid.Row="2"
@@ -49,7 +58,6 @@
                VerticalTextAlignment="Center"
                HorizontalTextAlignment="Center"
                FontSize="18"  />
-       
 
         <Label Text="Just press a button below to see how long until Christmas or how Santas weather is."
                Grid.Row="3"
