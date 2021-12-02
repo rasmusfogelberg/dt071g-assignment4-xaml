@@ -29,8 +29,7 @@
             <RowDefinition Height="2*" />
             <RowDefinition Height="3*" />
             <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="100" />
         </Grid.RowDefinitions>
 
         <Image Source="santa_hat"
@@ -47,8 +46,8 @@
                HorizontalTextAlignment="Center"
                FontSize="40" />
         
-        <!--Using binding here to get the countdown. TODO: change name for method-->
-        <Label Text="{Binding Test}" 
+        <!--Using binding here to get the countdown. -->
+        <Label Text="{Binding CountDown}"
                Grid.Row="2"
                Grid.Column="0"
                Grid.ColumnSpan="2"
@@ -58,7 +57,7 @@
                FontSize="40" />
   
         <Button Text="Go Back"
-                Grid.Row="5"
+                Grid.Row="4"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Command="{Binding ExitCommand}"

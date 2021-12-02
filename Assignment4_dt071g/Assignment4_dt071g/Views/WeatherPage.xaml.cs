@@ -23,14 +23,14 @@ namespace Assignment4_dt071g
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WeatherPage : ContentPage
     {
+        private string lat = "90";
+        private string lon = "135";
+
         public WeatherPage()
         {
             InitializeComponent();
             GetWeatherInfo();
         }
-
-        private string lat = "90";
-        private string lon = "135";
 
         private async void GetWeatherInfo()
         {

@@ -1,13 +1,7 @@
 ﻿/*
  * A view model for the time page that creates the countdown and sends the information to the 
  * view for time.
- * 
- * TODO:
- *  [ ] - Need to make the clock show time remaning in real time (not updating live right now)
- *  [ ] - Look over getters and setters and OOP in general if I'm using the TimeModel correctly
- *  [ ] - Remove the if statments below since they are not needed (or are they for live countdown?)
- *  [ ] - Rename method from "TestCountdown" to something more fitting
- *  
+ *
  * Author: Rasmus Fogelberg 
  */
 
@@ -21,85 +15,72 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 
 namespace Assignment4_dt071g
 {
     public class TimePageViewModel : INotifyPropertyChanged
     {
+        // Declaring variables
+        private string countDown;
+        public DateTime endTime = new DateTime(2021, 12, 24, 0, 0, 0);
+        public string cTimer;
+        System.Timers.Timer timer;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public TimePageViewModel()
         {
+           StartCountDownTimer();
+
             // Button to go back or "exit" the view
             ExitCommand = new Command(async () =>
             await Application.Current.MainPage.Navigation.PopAsync());
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        // As I understand how A model should be used. But I don't think I use it
-        TimeModel countdown;
-        public TimeModel Countdown
-        {
-
-            get => countdown;
-            set
-            {
-                countdown = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Countdown)));
+        // Using PropertyChanged to update the text for the countdown timer
+        public string CountDown
+        { 
+            get => countDown;
+            set 
+            { 
+                if (countDown != value) 
+                { 
+                    countDown = value; 
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("CountDown"));
+                    }
+                }
             }
         }
 
-        // My attempt to get a live countdown. Much of this code isn't actually used right now
-        DateTime current = DateTime.Now;
-        public string TestCountdown() { 
-        DateTime xmas = new DateTime(2021, 12, 24, 0, 0, 0);
-        Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-            {
-               if (current != DateTime.Now)
-               {
-                    current = DateTime.Now;
-               }
-               return true;
-           });
-                if (current != DateTime.Now)
-                {
-                    current = DateTime.Now;
-                    TimeSpan timeLeft = xmas - current;
-                    string message = $"{timeLeft.Days} days,{Environment.NewLine}{timeLeft.Hours} hours,{Environment.NewLine}{timeLeft.Minutes} minutes,{Environment.NewLine}{timeLeft.Seconds} seconds";
-                    return message;
-                }
-                else
-                {
-                    string message = "Oppsie. Santas countdown timer doesn't seem to work right now!";
-                    return message;
-                }
-        }
-
-        public string Test
+        // Using Timer to start the countdown when the page is accessed
+        public void StartCountDownTimer()
         {
-            get
-            {
-                return $"{TestCountdown()}";
-            }
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += t_Tick;
+           
+            timer.Start();
         }
-
-
-        // String name, method Name and function InitTicking are test I used to learn about Xamarin
-
-        string name = "Rasmus";
-        public string Name
+       
+        // Method that will start the ticking of the timer
+        void t_Tick(object sender, EventArgs e)
         {
-            get { return name; }
-            set { name = value; }
-        }
+            TimeSpan ts = endTime - DateTime.Now;
 
-        public void InitTicking() {
-            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+            cTimer = ts.ToString($"d' days,{Environment.NewLine}'h' hours,{Environment.NewLine}'m' minutes,{Environment.NewLine}'s' seconds'");
+
+            MainThread.BeginInvokeOnMainThread(() =>
             {
-                DateTime current = DateTime.Now;
-                return true;
+                // Code to run on the main thread
+                CountDown = cTimer;
             });
+            if ((ts.TotalMilliseconds < 0) || (ts.TotalMilliseconds < 1000))
+            {
+                timer.Stop();
+            }
         }
 
         public ICommand ExitCommand { get; }
