@@ -23,8 +23,8 @@ namespace Assignment4_dt071g
     {
         // Declaring variables
         private string countDown;
-        public DateTime endTime = new DateTime(2021, 12, 24, 0, 0, 0);
         public string cTimer;
+        public DateTime endTime = new DateTime(2021, 12, 24, 0, 0, 0);
         System.Timers.Timer timer;
 
         public event PropertyChangedEventHandler PropertyChanged;
